@@ -1,0 +1,54 @@
+<div class="issues-box">
+
+    <div class="issue-box-title">
+        {{ milestone.title }}
+        <small>
+            {{ issues.length }} issues
+        </small>
+    </div>
+
+    <div class="issue-box-description">
+        <span *ngIf="milestone.description">{{ milestone.description }}</span>
+
+        <span *ngIf="milestone.startDate">
+            [
+            {{ milestone.startDate | date: 'dd.MM.yyyy' }}
+            <span *ngIf="milestone.endDate">
+                - {{ milestone.endDate| date: 'dd.MM.yyyy' }}
+            </span>
+            ]
+        </span>
+
+    </div>
+
+    <div class="issues-list-empty" *ngIf="issues.length == 0" dnd-droppable (onDropSuccess)="assignIssue($event)">
+        <span *ngIf="milestone.id">Plan a sprint by dragging issues here</span>
+        <span *ngIf="!milestone.id">Remove issues from sprints by dragging them here</span>
+    </div>
+
+    <div class="issues-list" *ngIf="issues.length > 0" dnd-droppable (onDropSuccess)="assignIssue($event)">
+
+        <issue *ngFor="let issue of issues" [issue]="issue" [milestone]="this"></issue>
+
+    </div>
+
+    <div class="issues-box-createIssue">
+        <span [hidden]="createModeActive" (click)="activateCreateMode(newIssueNameInput)">+ Create issue</span>
+        <div [hidden]="!createModeActive">
+            <input type="text" class="form-control form-control-sm" placeholder="What needs to be done?" [formControl]="newIssueName" (keyup.enter)="createNewIssue()" (keyup.esc)="deactivateCreateMode()" #newIssueNameInput>
+        </div>
+    </div>
+
+    <div class="issues-box-footer">
+
+        <div>
+            {{ issues.length }} issues
+        </div>
+
+        <div>
+            Estimate <span class="issues-box-estimate">{{ totalStoryPoints }}</span>
+        </div>
+
+    </div>
+
+</div>

@@ -1,0 +1,29 @@
+<a class="navbar-brand" href="/" style="color: #92C36F">Scrum</a>
+
+<ul class="navbar-nav mr-auto">
+
+    <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" id="dropdown-group" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            <span *ngIf="currentProject">{{ currentProject.name }}</span>
+            <span *ngIf="!currentProject">Please select a project</span>
+        </a>
+        <div class="dropdown-menu" aria-labelledby="dropdown-group">
+
+            <a *ngFor="let project of projects" class="dropdown-item" routerLink="/{{ project.id }}/backlog">{{ project.name }}</a>
+
+        </div>
+    </li>
+
+</ul>
+
+<ul class="navbar-nav float-right" *ngIf="currentProject">
+
+    <li class="nav-item">
+        <a routerLink="/{{ currentProject.id }}/backlog" [routerLinkActive]="['active']" class="nav-link">Backlog</a>
+    </li>
+
+    <li class="nav-item">
+        <a routerLink="/{{ currentProject.id }}/reports" [routerLinkActive]="['active']" class="nav-link">Reports</a>
+    </li>
+
+</ul>

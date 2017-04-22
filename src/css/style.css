@@ -1,0 +1,215 @@
+body {
+  padding-top: 70px;
+  background: #F5F7F8;
+}
+.loading {
+  width: 100px;
+  height: 100px;
+  font-size: 40px;
+  color: #222;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-left: -50px;
+  margin-top: -50px;
+}
+nav {
+  min-height: 53px;
+  background-color: #fff;
+  box-shadow: 0px 1px 3px rgba(0, 0, 0, 0.15);
+  padding-top: 0 !important;
+  padding-bottom: 0 !important;
+}
+nav .dropdown {
+  cursor: pointer;
+}
+nav .nav-link {
+  text-transform: uppercase;
+  font-size: 14px;
+  padding-top: 7px;
+  color: #585858;
+}
+nav ul.float-right .nav-item {
+  padding-top: 10px;
+  padding-bottom: 6px;
+}
+nav ul.float-right .nav-item a.active {
+  border-bottom: 2px solid #585858;
+}
+.issues-box {
+  padding: 5px;
+  border-radius: 3px;
+  font-size: 14px;
+  margin-bottom: 20px;
+}
+.issues-box .issue-box-title {
+  font-weight: bold;
+  margin-bottom: 5px;
+  font-size: 120%;
+}
+.issues-box .issue-box-title small {
+  color: #999;
+  font-size: 70%;
+  padding-left: 5px;
+}
+.issues-box .issue-box-description {
+  color: #999;
+  font-size: 12px;
+  margin-bottom: 6px;
+}
+.issues-box .issues-list-empty {
+  border: 1px dashed #ccc;
+  padding: 10px;
+}
+.issues-box .issues-list {
+  border-bottom: none;
+}
+.issues-box .issue {
+  padding: 6px;
+  display: block;
+  position: relative;
+  cursor: move;
+  background: #fff;
+  margin-bottom: 4px;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+  border-radius: 3px;
+}
+.issues-box .issue:hover {
+  background: #f9f9f9;
+}
+.issues-box .issue .issue-items {
+  position: absolute;
+  top: 5px;
+  right: 6px;
+}
+.issues-box .issue .issue-items > div {
+  min-width: 35px;
+  text-align: center;
+}
+.issues-box .issue .issue-items .issue-id {
+  color: #ccc;
+  display: inline-block;
+  font-size: 12px;
+}
+.issues-box .issue .issue-items .issue-priority {
+  display: inline-block;
+}
+.issues-box .issue .issue-items .issue-storyPoints {
+  display: inline-block;
+}
+.issues-box .issue .issue-items .issue-storyPoints a {
+  background: #d6dce6;
+  border-radius: 2em;
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 0.99;
+  padding: 3px 5px 2px 5px;
+  min-width: 25px;
+  display: inline-block;
+  text-align: center;
+  text-decoration: none;
+}
+.issues-box .issue .issue-items .issue-storyPoints a:hover {
+  text-decoration: none;
+  color: rgba(51, 51, 51, 0.8);
+}
+.issues-box .issues-box-createIssue {
+  color: #999;
+  padding: 10px;
+}
+.issues-box .issues-box-createIssue span {
+  display: block;
+  cursor: pointer;
+}
+.issues-box .issues-box-createIssue span:hover {
+  color: #333;
+}
+.issues-box .issues-box-footer {
+  padding: 10px;
+  padding-top: 0;
+  text-align: right;
+  color: #999;
+  font-size: 90%;
+}
+.issues-box .issues-box-footer > div {
+  display: inline-block;
+  margin-left: 10px;
+}
+.issues-box .issues-box-footer .issues-box-estimate {
+  background: #d6dce6;
+  border-radius: 2em;
+  color: rgba(51, 51, 51, 0.8);
+  font-size: 11px;
+  font-weight: bold;
+  line-height: 0.99;
+  padding: 3px 5px 2px 5px;
+  min-width: 25px;
+  display: inline-block;
+  text-align: center;
+}
+.dropdown-menu {
+  min-width: 8rem;
+  font-size: 80%;
+}
+.dropdown-menu li.active {
+  color: #fff;
+  text-decoration: none;
+  background-color: #5d5d5d;
+}
+.dropdown-menu li.active a {
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown-menu li.active a:hover {
+  color: #fff;
+  text-decoration: none;
+}
+.dropdown-menu .dropdown-item {
+  padding: 3px 11px;
+}
+.dropdown-menu .dropdown-item:hover {
+  color: #fff !important;
+  cursor: pointer;
+  text-decoration: none;
+  background-color: #5d5d5d;
+}
+.label-preview {
+  padding: 3px 10px;
+  border-radius: 30px;
+  margin-right: 5px;
+  font-size: 14px;
+}
+.btn-primary {
+  background-color: #242B32;
+  border-color: #242B32;
+  cursor: pointer;
+}
+.btn-primary:hover {
+  background-color: #323947;
+  border-color: #323947;
+}
+.token-setup-img {
+  width: 40%;
+  float: right;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+}
+h1 {
+  text-transform: uppercase;
+  font-size: 19px;
+  font-weight: normal;
+  margin-bottom: 30px;
+}
+.project-list {
+  width: 60%;
+  margin-left: 20%;
+}
+.project-list > a {
+  background-color: #fff;
+  box-shadow: 0 1px 1px 0 rgba(0, 0, 0, 0.18);
+  font-size: 16px;
+  padding: 15px;
+  margin-bottom: 10px;
+  border-radius: 3px;
+  display: block;
+}

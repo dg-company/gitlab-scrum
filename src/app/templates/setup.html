@@ -1,0 +1,32 @@
+<div class="container">
+
+    <img src="/assets/token-setup.png" class="token-setup-img">
+
+    <h1>Grant access to your GitLab Account</h1>
+
+    <ul>
+        <li>
+            Open the <a href="{{ apiUrl }}/profile/personal_access_tokens" target="_blank">Access Tokens</a> page of your GitLab profile
+        </li>
+        <li>
+            Choose a name for the new token
+        </li>
+        <li>
+            Check "<strong>api</strong> Access your API"
+        </li>
+        <li>
+            Copy your newly created access token and paste it into the following field:
+        </li>
+    </ul>
+
+    <div class="form-group" [ngClass]="{ 'has-danger': tokenisInvalid }">
+
+        <label class="form-control-label">Access Token</label>
+
+        <input class="form-control" placeholder="Paste your GitLab Access Token here" style="width: 40%" [formControl]="token" (keyup)="checkToken()">
+
+        <div class="form-control-feedback" *ngIf="tokenisInvalid">Sorry, this token is not valid!</div>
+
+    </div>
+
+</div>

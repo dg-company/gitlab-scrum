@@ -1,0 +1,14 @@
+<div class="container">
+
+    SETUP
+
+    <br><br>
+    The following labels will be created for this project:<br>
+
+    <span *ngFor="let label of missingLabels" class="label-preview" [style.background-color]="label.color">{{ label.name }}</span>
+
+    <br><br>
+
+    <button class="btn btn-primary" (click)="setup()">Start setup</button>
+
+</div>

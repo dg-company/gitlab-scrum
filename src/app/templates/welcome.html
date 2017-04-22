@@ -1,0 +1,9 @@
+<div class="container">
+
+    <h1 style="text-align: center">Please select a project</h1>
+
+    <div class="project-list">
+        <a *ngFor="let project of projects" routerLink="/{{ project.id }}/backlog">{{ project.name }}</a>
+    </div>
+
+</div>

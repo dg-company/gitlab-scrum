@@ -1,0 +1,93 @@
+<div class="issue" dnd-draggable [dragEnabled]="true" [dragData]="issue">
+
+    {{ issue.title }}
+
+    <div class="issue-items">
+
+        <div class="issue-id">{{ issue.id }}</div>
+        <div class="issue-priority" dropdown container="body">
+
+            <a href dropdownToggle (click)="false">
+                <i *ngIf="issue.priority == 1" style="color: #55A557" class="fa fa-arrow-down"></i>
+                <i *ngIf="issue.priority == 2" style="color: #2A8735" class="fa fa-arrow-down"></i>
+                <i *ngIf="issue.priority == 3" style="color: #EA7D24" class="fa fa-arrow-up"></i>
+                <i *ngIf="issue.priority == 4" style="color: #EA4444" class="fa fa-arrow-up"></i>
+                <i *ngIf="issue.priority == 5" style="color: #CE0000" class="fa fa-arrow-up"></i>
+
+                <span *ngIf="!issue.priority">
+                    <i class="fa fa-question" style="color: #ccc"></i>
+                </span>
+            </a>
+
+            <ul *dropdownMenu class="dropdown-menu">
+
+                <li [ngClass]="{ 'active': issue.priority == 5 }">
+                    <a class="dropdown-item" (click)="setPriority(5)">
+                        <i style="color: #CE0000" class="fa fa-arrow-up"></i>
+                        Highest
+                    </a>
+                </li>
+
+                <li [ngClass]="{ 'active': issue.priority == 4 }">
+                    <a class="dropdown-item" (click)="setPriority(4)">
+                        <i style="color: #EA4444" class="fa fa-arrow-up"></i>
+                        High
+                    </a>
+                </li>
+
+                <li [ngClass]="{ 'active': issue.priority == 3 }">
+                    <a class="dropdown-item" (click)="setPriority(3)">
+                        <i style="color: #EA7D24" class="fa fa-arrow-up"></i>
+                        Medium
+                    </a>
+                </li>
+
+                <li [ngClass]="{ 'active': issue.priority == 2 }">
+                    <a class="dropdown-item" (click)="setPriority(2)">
+                        <i style="color: #2A8735" class="fa fa-arrow-down"></i>
+                        Low
+                    </a>
+                </li>
+
+                <li [ngClass]="{ 'active': issue.priority == 1 }">
+                    <a class="dropdown-item" (click)="setPriority(1)">
+                        <i style="color: #55A557" class="fa fa-arrow-down"></i>
+                        Lowest
+                    </a>
+                </li>
+
+                <li [ngClass]="{ 'active': !issue.priority }">
+                    <a class="dropdown-item" (click)="setPriority(0)">
+                        <i style="color: #ccc" class="fa fa-question"></i>
+                        None
+                    </a>
+                </li>
+
+            </ul>
+
+        </div>
+        <div class="issue-storyPoints" dropdown container="body">
+
+            <a href dropdownToggle (click)="false">
+                <span *ngIf="issue.storyPoints">{{ issue.storyPoints }}</span>
+                <span *ngIf="!issue.storyPoints">-</span>
+            </a>
+
+            <ul *dropdownMenu class="dropdown-menu">
+                <li *ngFor="let points of storyPoints" [ngClass]="{ 'active': issue.storyPoints == points }">
+                    <a class="dropdown-item" (click)="setStoryPoints(points)">
+                        {{points}}
+                    </a>
+                </li>
+                <li [ngClass]="{ 'active': !issue.storyPoints }">
+                    <a class="dropdown-item" (click)="setStoryPoints(0)">
+                        -
+                    </a>
+                </li>
+            </ul>
+
+        </div>
+
+    </div>
+
+</div>
