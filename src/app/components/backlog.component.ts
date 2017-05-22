@@ -8,7 +8,6 @@ import {Project} from "../models/project";
 import {Milestone} from "../models/milestone";
 import {MilestoneService} from "../services/milestone.service";
 import {LabelService} from "../services/label.service";
-import {Location} from "@angular/common";
 
 @Component({
     templateUrl: './../templates/backlog.html'

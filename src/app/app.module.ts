@@ -29,6 +29,7 @@ import { LabelService } from './services/label.service';
 import {Ng2Webstorage} from "ngx-webstorage";
 import {ProjectSetupComponent} from "./components/project-setup.component";
 import {TokenService} from "./services/token.service";
+import {ChartModule} from "angular2-chartjs";
 
 // Init
 @NgModule({
@@ -42,7 +43,8 @@ import {TokenService} from "./services/token.service";
       DndModule.forRoot(),
       SweetAlert2Module.forRoot({}),
       BsDropdownModule.forRoot(),
-      Ng2Webstorage
+      Ng2Webstorage,
+      ChartModule
   ],
   declarations: [
       AppComponent,

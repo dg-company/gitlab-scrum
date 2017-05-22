@@ -1,5 +1,17 @@
 <div class="container">
 
-    TODO
+    <select type="form-control" (change)="loadReports()" [(ngModel)]="currentMilestone">
+        <option *ngFor="let milestone of milestones" [ngValue]="milestone">
+            {{ milestone.title }}
+        </option>
+    </select>
+
+    <div [hidden]="!displayReports" style="margin-top: 20px">
+
+        <h1>Burndown Chart</h1>
+
+        <canvas #burndownChart style="width: 100%; height: 400px"></canvas>
+
+    </div>
 
 </div>

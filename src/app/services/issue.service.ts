@@ -11,6 +11,7 @@ import { Issue } from '../models/issue';
 import {Project} from "../models/project";
 import {Milestone} from "../models/milestone";
 import {LabelService} from "./label.service";
+import {IssueComment} from "../models/issue-comment";
 
 @Injectable()
 export class IssueService {
@@ -55,6 +56,21 @@ export class IssueService {
         return new Observable(observer => {
 
             this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?state=opened&milestone=' + milestone.title).subscribe(issues => {
+
+                this.parseLabels(issues);
+
+                observer.next(issues);
+                observer.complete();
+
+            });
+
+        });
+    }
+
+    findAllByProjectAndMilestone(project: Project, milestone: Milestone): Observable<Issue[]> {
+        return new Observable(observer => {
+
+            this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?milestone=' + milestone.title).subscribe(issues => {
 
                 this.parseLabels(issues);
 
@@ -162,6 +178,30 @@ export class IssueService {
                     observer.next();
                     observer.complete();
                 });
+
+            });
+
+        });
+    }
+
+    getClosingDate(issue: Issue): Observable<Date> {
+        return new Observable(observer => {
+
+            // get issue comments
+            this.api.get<IssueComment>(IssueComment, 'projects/' + issue.projectId + '/issues/' + issue.iid + '/notes')
+                .subscribe((comments: IssueComment[]) => {
+
+                let closingDate = null;
+
+                for (const comment of comments) {
+                    if (comment.body === "closed") {
+                        closingDate = comment.createdAt;
+                        break;
+                    }
+                }
+
+                observer.next(closingDate);
+                observer.complete();
 
             });
 

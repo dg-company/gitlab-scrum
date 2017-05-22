@@ -7,6 +7,7 @@ export class Issue {
     storyPoints: number;
     labels: string[];
     projectId: number;
+    state: string;
 
     constructor(data: any) {
         this.id = data.id;
@@ -16,6 +17,7 @@ export class Issue {
         this.storyPoints = null;
         this.labels = data.labels;
         this.projectId = data.project_id;
+        this.state = data.state;
     }
 
 }

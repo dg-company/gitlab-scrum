@@ -26,7 +26,6 @@ export class MilestoneService {
                 for (const milestone of milestones) {
                     if (milestone.startDate && milestone.startDate < new Date()) {
                         milestone.activeSprint = true;
-                        console.log(milestone.startDate, new Date());
                     }
                 }
 
