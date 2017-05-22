@@ -54,7 +54,7 @@ export class MilestoneComponent {
                     this.sortIssues();
                     this.calculateStoryPoints();
                 });
-            } else if (!this.milestone.activeSprint) {
+            } else {
                 // milestone
                 this.issueService.findByProjectAndMilestone(project, this._milestone).subscribe((issues: Issue[]) => {
                     this.issues = issues;

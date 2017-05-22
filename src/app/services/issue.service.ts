@@ -55,7 +55,7 @@ export class IssueService {
     findByProjectAndMilestone(project: Project, milestone: Milestone): Observable<Issue[]> {
         return new Observable(observer => {
 
-            this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?state=opened&milestone=' + milestone.title).subscribe(issues => {
+            this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?state=opened&milestone=' + encodeURIComponent(milestone.title)).subscribe(issues => {
 
                 this.parseLabels(issues);
 
@@ -70,7 +70,7 @@ export class IssueService {
     findAllByProjectAndMilestone(project: Project, milestone: Milestone): Observable<Issue[]> {
         return new Observable(observer => {
 
-            this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?milestone=' + milestone.title).subscribe(issues => {
+            this.api.get<Issue>(Issue, 'projects/' + project.id + '/issues?milestone=' + encodeURIComponent(milestone.title)).subscribe(issues => {
 
                 this.parseLabels(issues);
 
